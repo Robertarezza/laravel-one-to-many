@@ -69,6 +69,9 @@
 
         </tbody>
     </table>
+    <div>
+    {{ $projects->appends(['status' => request('status')])->links() }}
+    </div>
 </div>
 
 @endsection

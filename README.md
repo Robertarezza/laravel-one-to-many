@@ -1,17 +1,19 @@
 Ciao ragazzi,
-creiamo con Laravel il nostro sistema di gestione del nostro Portfolio di progetti.
+continuiamo a lavorare nel progetto dei giorni scorsi e aggiungiamo una nuova entità Type. Questa entità rappresenta la tipologia di progetto ed è in relazione one to many con i progetti.
 
-    Oggi iniziamo un nuovo progetto che si arricchirà nel corso delle prossime lezioni: man mano aggiungeremo funzionalità e vedremo la nostra applicazione crescere ed evolvere.
-
-    Nel pomeriggio, rifate ciò che abbiamo visto insieme stamattina stilando tutto a vostro piacere utilizzando SASS.
-
-    Ripercorriamo gli steps fatti a lezione ed iniziamo un nuovo progetto usando laravel breeze.
-Iniziamo con il definire il layout, modello, migrazione, controller e rotte necessarie per il sistema portfolio:
-
-1. Autenticazione: si parte con l'autenticazione e la creazione di un layout per back-office, quindi create il vostro progetto partendo dal template che abbiamo fatto durante la lezione https://github.com/olgas-class/laravel-auth-template. Controllate che tutto funzioni e studiate la struttura del progetto per orientarvi al meglio.
-
-2. Creazione del modello `Project` con relativa migrazione e seeder. Aggiungete il campo slug alla vostra tabella.
-
-3. Per la parte di back-office creiamo un resource controller `Admin\ProjectController` per gestire tutte le operazioni CRUD dei progetti.
-:avviso:  Oggi dovete implementare migration, seeder e la pagina index. Se avrete tempo, fate anche create e store con le validazioni.
-
+I task da svolgere sono diversi, ma alcuni di essi sono un ripasso di ciò che abbiamo fatto nelle lezioni dei giorni scorsi:
+- creare la migration per la tabella types
+- creare il model Type
+- creare la migration di modifica per la tabella projects per aggiungere la chiave esterna
+- aggiungere ai model Type e Project i metodi per definire la relazione one to many
+- visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente
+- permettere all’utente di associare una tipologia nella pagina di creazione e modifica di un progetto
+- gestire il salvataggio dell’associazione progetto-tipologia con opportune regole di validazione
+Bonus 1:
+creare il seeder per il model Type.
+Bonus 2:
+aggiungere le operazioni CRUD per il model Type, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione.
+SE NELLA REPO DI AUTENTICAZIONE NON AVETE COMPLETATO TUTTE LE CRUD
+- fare almeno index e show nella repo Auth
+- passare alla repo di relations
+- inserire le relazioni e continuare con implementazione delle CRUD nella repo di relazioni

@@ -19,18 +19,20 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-        $status = request()->input('status', 'all');
-
-    if ($status === 'all') {
-        $projects = Project::all();
-    } else {
-        $projects = Project::where('status', $status)->get();
+        $status = $request->input('status', 'all');
+    
+        if ($status === 'all') {
+            // Paginazione per tutti i progetti
+            $projects = Project::paginate(5);
+        } else {
+            // Paginazione per i progetti filtrati per stato
+            $projects = Project::where('status', $status)->paginate(5);
+        }
+    
+        return view('admin.projects.index', compact('projects'));
     }
-
-    return view('admin.projects.index', compact('projects'));
-        
-    }
-
+    
+    
     /**
      * Show the form for creating a new resource.
      */
