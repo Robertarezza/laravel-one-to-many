@@ -10,7 +10,7 @@ class Project extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $fillable= ['title', 'description', 'status','used_technologies','slug', 'cover_image'];
+    protected $fillable= ['title', 'description', 'status','used_technologies','slug', 'cover_image', 'type_id'];
 
 
     public function type() {
