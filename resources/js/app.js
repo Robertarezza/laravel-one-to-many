@@ -3,14 +3,6 @@ import "~resources/scss/app.scss";
 import.meta.glob(["../img/**"]);
 import * as bootstrap from "bootstrap";
 
-//if ("{{ route('admin.projects.create') }}" === "{{ url()->current() }}") {
-   
-    // document.getElementById('title').addEventListener('input', function() {
-    //     const title = this.value;
-    //     const slug = title.toLowerCase().trim().replace(/\s+/g, '-');
-    //     document.getElementById('slug').value = slug;
-    // });
-//}
 
 document.getElementById('cover_image').addEventListener('change', function(event) {
     // Recupero la lista di file selezionati
@@ -32,3 +24,15 @@ document.getElementById('cover_image').addEventListener('change', function(event
 //event.target: È l'elemento DOM su cui l'evento è stato originariamente attivato. Nell'esempio dell'input file, event.target si riferisce all'elemento <input type="file"> stesso.
 
 //event.target.files: È la proprietà che restituisce un oggetto FileList, che è una raccolta (o una lista) di oggetti File. Questi oggetti File rappresentano i file selezionati dall'utente tramite l'input file.
+
+
+// Rimuovere la visualizzazione dell'immagine di copertina se il checkbox è selezionato
+document.getElementById('remove_cover_image').addEventListener('change', function() {
+    if (this.checked) {
+        document.getElementById('remove_cover_image_hidden').value = '1';
+        document.getElementById('cover_image_preview').style.display = 'none'; // Nascondi l'anteprima dell'immagine
+    } else {
+        document.getElementById('remove_cover_image_hidden').value = '0';
+        document.getElementById('cover_image_preview').style.display = 'block'; // Mostra l'anteprima dell'immagine
+    }
+});

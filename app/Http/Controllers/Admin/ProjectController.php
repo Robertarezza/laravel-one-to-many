@@ -92,6 +92,12 @@ class ProjectController extends Controller
         $data = $request->all();
         $project->slug = Str::slug($request->title);
 
+        // Rimuovi l'immagine di copertina se il checkbox è selezionato
+        if ($request->has('remove_cover_image_hidden') && $request->input('remove_cover_image_hidden') == '1') {
+            Storage::delete($project->cover_image); // Rimuovi l'immagine dallo storage
+            $project->cover_image = null; // Pulisci il campo cover_image nel modello
+        }
+
         if ($request->hasFile('cover_image')) {
             if ($project->cover_image) {
                 Storage::delete($project->cover_image);

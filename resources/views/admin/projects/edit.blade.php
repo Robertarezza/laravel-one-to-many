@@ -42,9 +42,9 @@
         <div class="mb-3">
             <label for="type_id" class="form-label">Tipologia</label>
             <select class="form-select" id="type_id" name="type_id">
-                    <option>Seleziona</option>
+                <option>Seleziona</option>
                 @foreach ($types as $type )
-                    <option @selected($project->type?->id == $type->id) value="{{$type->id}}"> {{$type->name}}</option>
+                <option @selected($project->type?->id == $type->id) value="{{$type->id}}"> {{$type->name}}</option>
                 @endforeach
             </select>
         </div>
@@ -55,10 +55,18 @@
             <textarea class="form-control" id="description" name="description" rows="3"> {{old('description', $project->description)}}</textarea>
         </div>
 
-        <div>
-            <label for="cover_image">Immagine di copertina</label>
-            <input type="file" name="cover_image" id="cover_image">
+        <div class="d-flex">
+            <div>
+                <label for="cover_image">Immagine di copertina</label>
+                <input type="file" name="cover_image" id="cover_image">
+            </div>
+            <div class="mb-3">
+                <input type="checkbox" id="remove_cover_image" name="remove_cover_image">
+                <label for="remove_cover_image">Rimuovi immagine di copertina</label>
+                <input type="hidden" id="remove_cover_image_hidden" name="remove_cover_image_hidden" value="0">
+            </div>
         </div>
+
         <div>
             <h4>Preview dell'immagine</h4>
             <img id="cover_image_preview" src="{{ asset('storage/' . $project->cover_image) }}" alt="">
