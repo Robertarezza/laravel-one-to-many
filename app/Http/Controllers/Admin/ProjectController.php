@@ -128,12 +128,31 @@ class ProjectController extends Controller
 
 //controller per file in eliminazione
 
-    public function trash()
-    {
-        dd('Reached here');
-    
-        return view('admin.projects.trash');
-    }
+public function trash()
+{
+   // dd('Reached here');
+    $deletedProjects = Project::onlyTrashed()->get();
+
+    return view('admin.projects.trash', compact('deletedProjects'));
+}
+
+public function restore($slug)
+{
+    $project = Project::withTrashed()->where('slug', $slug)->firstOrFail();
+    $project->restore();
+
+    return redirect()->route('admin.projects.index')
+        ->with('message', $project->title . ' Progetto ripristinato con successo.');
+}
+
+public function forceDelete($slug)
+{
+    $project = Project::withTrashed()->where('slug', $slug)->firstOrFail();
+    $project->forceDelete();
+
+    return redirect()->route('admin.projects.index')
+        ->with('message', $project->title .  ' Progetto eliminato definitivamente.');
+}
 
 }
 

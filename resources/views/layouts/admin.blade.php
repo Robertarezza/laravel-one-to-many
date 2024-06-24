@@ -87,7 +87,7 @@
                     </li>
                     <li>
                       <a class="nav-link text-white d-flex align-items-center gap-2" href="{{ route('admin.projects.trash') }}">
-                        <i class="fa-solid fa-plus fa-sm fa-fw"></i>
+                      <i class="fa-solid fa-trash-can " ></i>
                         <span class="flex-fill">Visualizza Cestino</span>
                       </a>
                     </li>

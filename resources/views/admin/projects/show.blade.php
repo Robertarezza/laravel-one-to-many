@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body mt-2">
                     <h5 class="card-title">{{$project->title}}</h5>
-                    <p class="card-text">Tipologia: {{$project->type->name}}</p>
+                    <p class="card-text">Tipologia: {{$project->type?->name}}</p>
                     <p class="card-text">Tecnologie Usate: {{$project->used_technologies}}</p>
                     <p class="card-text">Stato di lavorazione:
                         @if($project->status == 'ongoing')

@@ -5,6 +5,7 @@
 <div class="container mt-5">
 
     @include('partials.session_message')
+    
     <div class="d-flex justify-content-around mt-5">
         <h1>I miei Progetti</h1>
         <form action="{{ route('admin.projects.index') }}" method="GET" class="d-flex align-items-center justify-content-center gap-3">

@@ -29,7 +29,9 @@ Route::middleware('auth')
           // Rotte per gestire i progetti eliminati
           Route::get('projects/trash', [ProjectController::class, 'trash'])->name('projects.trash'); // Mostra tutti gli elementi eliminati
         
-
+          Route::put('projects/restore/{project:slug}', [ProjectController::class, 'restore'])->name('projects.restore'); // Ripristina un elemento eliminato
+          Route::delete('projects/force-delete/{project:slug}', [ProjectController::class, 'forceDelete'])->name('projects.force-delete'); // Elimina definitivamente un elemento
+  
         Route::resource('projects', ProjectController::class)->
         parameters(['projects'=>'project:slug']);
 
