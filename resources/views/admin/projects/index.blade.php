@@ -26,9 +26,10 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Titolo</th>
+                <th scope="col">Tipologia</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Tecnologie</th>
-                <th scope="col">stato</th>
+                <th scope="col">Stato</th>
                 <th scope="col">Azioni</th>
             </tr>
         </thead>
@@ -38,6 +39,7 @@
             <tr>
                 <th scope="row">{{$project->id}}</th>
                 <td>{{$project->title}}</td>
+                <td>{{$project->type?->name}}</td>
                 <td>{{$project->slug}}</td>
                 <td>{{$project->used_technologies}}</td>
                 <td>@if($project->status == 'ongoing')

@@ -30,6 +30,17 @@
       </select>
     </div>
 
+    <div class="mb-3">
+      <label for="type_id" class="form-label">Tipologia</label>
+      <select class="form-select" id="type_id" name="type_id">
+        <option>Seleziona</option>
+        @foreach ($types as $type )
+        <option  value="{{$type->id}}">{{$type->name}}</option>
+        @endforeach
+        
+      </select>
+    </div>
+
 
     <div class="mb-3">
       <label for="description" class="form-label">Descrizione</label>
