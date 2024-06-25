@@ -35,7 +35,7 @@
       <select class="form-select" id="type_id" name="type_id">
         <option>Seleziona</option>
         @foreach ($types as $type )
-        <option  value="{{$type->id}}">{{$type->name}}</option>
+        <option @selected(old ('type_id' ) == {{$type->id}} ) value="{{$type->id}}">{{$type->name}}</option>
         @endforeach
       </select>
     </div>
